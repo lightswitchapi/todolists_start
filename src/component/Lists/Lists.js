@@ -18,12 +18,10 @@ const Lists = () => {
   // Fetch Lists
   const fetchLists = () => {
 
-    setLoading(true)
-    setErrorMessage('')
-
     // ** INSERT READ CODE HERE **
 
     // ** INSERT READ CODE ENDS **
+    
   }
 
   // Add List
@@ -40,7 +38,10 @@ const Lists = () => {
 
   // Delete List
   const deleteList = (listId) => {
-    
+
+    setLoading(true)
+    setErrorMessage('')
+
     // ** INSERT DELETE CODE HERE **
   
     // ** INSERT DELETE CODE ENDS **
