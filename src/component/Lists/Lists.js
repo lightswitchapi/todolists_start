@@ -40,10 +40,7 @@ const Lists = () => {
 
   // Delete List
   const deleteList = (listId) => {
-
-    setLoading(true)
-    setErrorMessage('')
-
+    
     // ** INSERT DELETE CODE HERE **
   
     // ** INSERT DELETE CODE ENDS **

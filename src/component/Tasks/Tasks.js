@@ -21,8 +21,6 @@ const Tasks = ({params}) => {
   // Fetch tasks
   const fetchTasks = (listId) => {
     
-    setLoading(true)
-
     // ** INSERT READ CODE HERE **
   
     // ** INSERT READ CODE ENDS **
