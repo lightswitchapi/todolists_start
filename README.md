@@ -17,7 +17,7 @@ npm install
 ```
 Once all dependences have been downloaded, run:
 ```
-npm run
+npm start
 ```
 Follow the instructions [here](https://lightswitchapi.com/tutorial/create-no-code-rest-api) to create a no-code REST API backend.
 
