@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
-import Header from "./component/Header";
-import Lists from "./component/Lists/Lists";
-import Tasks from "./component/Tasks/Tasks";
-import Login from "./component/Account/Login";
-import Signup from "./component/Account/Signup";
-import ProtectedRoute from "./component/Account/ProtectedRoute";
+import Header from "./components/Header";
+import Lists from "./components/Lists/Lists";
+import Tasks from "./components/Tasks/Tasks";
+import Login from "./components/Account/Login";
+import Signup from "./components/Account/Signup";
+import ProtectedRoute from "./components/Account/ProtectedRoute";
 import { AuthProvider } from "./hooks/useAuth";
 
 function App() {
