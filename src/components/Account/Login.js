@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
 
 const Login = () => {
@@ -11,6 +11,9 @@ const Login = () => {
 
   let auth = useAuth()
   let navigate = useNavigate()
+
+  let location = useLocation()
+  let { from } = location.state || { from: { pathname: "/" } }
 
   const validate = () => {
 
