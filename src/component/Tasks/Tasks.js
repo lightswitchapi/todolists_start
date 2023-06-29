@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import AddTask from './AddTask'
-import {useAuth} from './../../useAuth'
+import {useAuth} from '../../hooks/useAuth'
 
 const Tasks = ({params}) => {
 
@@ -71,7 +71,7 @@ const Tasks = ({params}) => {
       {(!tasks || tasks.length === 0) && <p>No items yet. Add one below.</p>}
       {tasks.map(task => (
         <div className="list-group-item d-flex align-items-start flex-column" key={task.id}>
-          <div className="form-group form-check">
+          <div className="form-check mb-3">
             <input disabled={loading} type="checkbox" className="form-check-input" checked={task.done} onChange={(e) => updateTask(task.id, e.target.checked) }/>
             <label className="form-check-label">{task.description}</label>
           </div>

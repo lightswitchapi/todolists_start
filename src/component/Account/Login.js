@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { useHistory, useLocation } from 'react-router-dom'
-import { useAuth } from './../../useAuth'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../hooks/useAuth'
 
 const Login = () => {
 
@@ -10,9 +10,7 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState('')
 
   let auth = useAuth()
-  let history = useHistory()
-  let location = useLocation()
-  let { from } = location.state || { from: { pathname: "/" } }
+  let navigate = useNavigate()
 
   const validate = () => {
 
@@ -45,7 +43,7 @@ const Login = () => {
   }
 
   const Signup = () => {
-    history.push('/signup')
+    navigate('/signup')
   }
 
   return (
@@ -57,17 +55,17 @@ const Login = () => {
       {loading && <div className="alert alert-info text-left">Signing in...</div>}
       {errorMessage && !loading && <div className="alert alert-danger text-left">{errorMessage}</div>}
       <form className="text-left" onSubmit={onSubmit}>
-        <div className="form-group">
+        <div className="mb-3">
           <label>Username</label>
           <input type="text" className="form-control" value={username} onChange={(e) => setUsername(e.target.value)}/>
         </div>
-        <div className="form-group">
+        <div className="mb-3">
           <label>Password</label>
           <input type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)}/>
         </div>
-        <div className="form-group float-md-right">
+        <div className="mb3 d-flex justify-content-end">
           <button onClick={Signup} type="button" className="btn btn-secondary">Sign up</button>
-          <button disabled={loading} type="submit" className="btn btn-primary ml-1">Login</button>
+          <button disabled={loading} type="submit" className="btn btn-primary ms-1">Login</button>
         </div>
       </form>
       </div>

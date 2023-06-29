@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AddList from "./AddList"
-import {useAuth} from './../../useAuth'
+import {useAuth} from '../../hooks/useAuth'
 
 const Lists = () => {
 

@@ -1,44 +1,44 @@
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom"
-import './App.css'
-import 'bootstrap/dist/css/bootstrap.css'
-import Header from './component/Header'
-import Lists from './component/Lists/Lists'
-import Tasks from './component/Tasks/Tasks'
-import Login from './component/Account/Login'
-import {ProvideAuth} from './useAuth'
-import Signup from "./component/Account/Signup"
-import PrivateRoute from "./component/Account/PrivateRoute"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.css";
+import Header from "./component/Header";
+import Lists from "./component/Lists/Lists";
+import Tasks from "./component/Tasks/Tasks";
+import Login from "./component/Account/Login";
+import Signup from "./component/Account/Signup";
+import ProtectedRoute from "./component/Account/ProtectedRoute";
+import { AuthProvider } from "./hooks/useAuth";
 
 function App() {
-
   return (
-    <ProvideAuth>
+    <AuthProvider>
       <div className="App col col-md-5 col-lg-5 col-xl-4 mx-auto shadow-sm px-0 pb-3">
-        <Header/>
+        <Header />
         <div className="container mt-5">
-            <Router>
-              <Switch>
-                <Route path="/signup">
-                  <Signup/>
-                </Route>
-                <Route path="/login">
-                  <Login/>
-                </Route>
-                <PrivateRoute exact path="/">
-                  <Lists/>
-                </PrivateRoute>
-                <PrivateRoute path="/list/:listName/:listId">
-                  <Tasks></Tasks>
-                </PrivateRoute>
-              </Switch>
-            </Router>
+          <Router>
+            <Routes>
+              <Route path="/signup" element={<Signup />}></Route>
+              <Route path="/login" element={<Login />}></Route>
+              <Route
+                path="/"
+                element={
+                  <ProtectedRoute>
+                    <Lists />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/list/:listName/:listId"
+                element={
+                  <ProtectedRoute>
+                    <Tasks></Tasks>
+                  </ProtectedRoute>
+                }
+              />
+            </Routes>
+          </Router>
         </div>
       </div>
-    </ProvideAuth>
+    </AuthProvider>
   );
 }
 
