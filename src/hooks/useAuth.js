@@ -25,6 +25,7 @@ function useProvideAuth() {
   };
 
   return {
+    token,
     setToken,
     validateToken,
     logout,
